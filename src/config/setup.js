@@ -30,7 +30,6 @@ const films = [
 const loadData = async () => {
 	var array = [];
 	array.push(Film.create(films));
-	array.push(Film.create({ title: "Ok" }));
 	await Promise.all(array);
 };
 
