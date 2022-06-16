@@ -48,14 +48,14 @@ Using `mongodb-memory-server` to create a db in memory. To load the data into th
 
 Add the versioning `/v1` to use the following endpoint
 
-| Path        | Method | Description   |
-| ----------- | ------ | ------------- |
-| /           | GET    | getAllFilms   |
-| /:id        | GET    | getOneFilm    |
-| /           | POST   | createOneFilm |
-| /update/:id | PATCH  | updateOneFilm |
-| /delete/:id | DELETE | deleteOneFilm |
-| /setup      | POST   | loadData DB   |
+| Path           | Method | Description   | Params    |
+| -------------- | ------ | ------------- | --------- |
+| /v1/           | GET    | getAllFilms   |           |
+| /v1/:id        | GET    | getOneFilm    | Film.\_id |
+| /v1/           | POST   | createOneFilm |           |
+| /v1/update/:id | PATCH  | updateOneFilm | Film.\_id |
+| /v1/delete/:id | DELETE | deleteOneFilm | Film.\_id |
+| /v1/setup      | POST   | loadData DB   |           |
 
 ## Schema mongoose
 
