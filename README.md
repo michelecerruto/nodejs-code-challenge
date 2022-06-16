@@ -7,8 +7,8 @@ Endpoints are accessible and public, no key or authorization is required. The pu
 
 - [Get Started](#get-started)
 - [Libraries](#libraries)
-- [API documentation](#api)
-- [Contributing](#contributing)
+- [API Endpoints](#api-endpoints)
+- [Schema mongoose](#schema-mongoose)
 - [License](#license)
 
 ## Get Started
