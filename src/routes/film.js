@@ -27,13 +27,13 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
 	try {
 		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-			throw new Error("No valid id");
+			throw new Error("Id is not valid: insert a valid id");
 		}
 
 		const film = await Film.findById(req.params.id);
 
 		if (!film) {
-			throw new Error("No Film found");
+			throw new Error("Film not found: insert a valid id");
 		}
 
 		logger.info(
@@ -77,18 +77,18 @@ router.post("/", async (req, res, next) => {
 router.patch("/update/:id", async (req, res, next) => {
 	try {
 		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-			throw new Error("No valid id");
+			throw new Error("Id is not valid: insert a valid id");
 		}
 
 		const film = await Film.findOne({ _id: req.params.id });
 
 		if (!film) {
-			throw new Error("No Film found");
+			throw new Error("Film not found: insert a valid id");
 		}
 
         // Check concurrency
 		if (film.updated_at.getTime() != film.created_at.getTime()) {
-			throw new Error("Already modified by another user");
+			throw new Error("Concurrency error: Film already modified by another user");
 		}
 
 		film.title = req.body.title;
@@ -116,13 +116,13 @@ router.patch("/update/:id", async (req, res, next) => {
 router.delete("/delete/:id", async (req, res, next) => {
 	try {
 		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-			throw new Error("No valid id");
+			throw new Error("Id is not valid: insert a valid id");
 		}
 
 		const film = await Film.findOne({ _id: req.params.id });
 
 		if (!film) {
-			throw new Error("No Film found");
+			throw new Error("Film not found: insert a valid id");
 		}
 
 		await Film.deleteOne(film._id);
