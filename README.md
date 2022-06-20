@@ -57,6 +57,16 @@ Add the versioning `/v1` to use the following endpoint
 | /v1/delete/:id | DELETE | deleteOneFilm | Film.\_id |
 | /v1/setup      | POST   | loadData DB   |           |
 
+### Post / Patch request body
+```json
+{
+  "title": "",
+  "original-title": "", (optional)
+  "production-year": 0, (optional)
+  "genre": "", (optional)
+}
+```
+
 ## Schema mongoose
 
 ```json
